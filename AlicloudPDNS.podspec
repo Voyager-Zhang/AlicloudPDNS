@@ -1,27 +1,18 @@
 Pod::Spec.new do |s|
-  s.name                  = "AlicloudPDNS"
-  s.version               = "2.2.0"
-  s.summary               = "阿里云公共DNS-SDK"
-  s.homepage              = "https://github.com/Voyager-Zhang/AlicloudPDNS"
-  s.license               = { :type => "MIT", :file => "LICENSE" }
-  s.author                = { "邢浩" => "wb-xh839484@alibaba-inc.com" }
-  s.source                = { :http => 'https://github.com/Voyager-Zhang/AlicloudPDNS' }
-  
-  # 明确设置平台
-  s.platform              = :ios, '9.0' # 将部署目标提高到 12.0，确保与现代 iOS 设备兼容。
-  s.public_header_files   = 'pdns-sdk-ios.framework/Headers/*.h'
-  s.source_files          = 'pdns-sdk-ios.framework/Headers/*.{h,m}'
-  # Vendored framework 的路径
-  s.vendored_frameworks    = 'pdns-sdk-ios.framework'
-  s.frameworks            = 'Foundation', 'CoreTelephony'
-  
-  # 添加其他链接标志
-  s.xcconfig             = { 'OTHER_LDFLAGS' => '-ObjC',
-			     'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64 armv7' # 排除特定架构，确保不在模拟器上运行
-	 }
-  
-        
-  # 推荐的构建配置（可选）
-  s.requires_arc          = true  # 确保启用 ARC (Automatic Reference Counting)
-  s.ios.deployment_target = '9.0' # 统一部署目标
+  s.name             = "AlicloudPDNS"
+  s.version          = "2.1.9"
+  s.summary          = "阿里云公共DNS-SDK"
+  s.homepage         = "https://help.aliyun.com/document_detail/181345.html"
+  s.author           = { "路阳" => "ly02350553@alibaba-inc.com" }
+  s.platform     = :ios
+  s.ios.deployment_target = '10.0'
+  s.source           = {
+    :git => "https://github.com/Voyager-Zhang/AlicloudPDNS.git",
+    :tag => s.version.to_s
+  }
+  s.public_header_files = 'pdns-sdk-ios.framework/Headers/*.h'
+  s.vendored_frameworks = 'pdns-sdk-ios.framework'
+  s.frameworks       = 'Foundation', 'CoreTelephony'
+  s.xcconfig         = { 'OTHER_LDFLAGS' => '-ObjC' }
+  s.requires_arc     = true
 end
